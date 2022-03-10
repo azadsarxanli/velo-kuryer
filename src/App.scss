@@ -1,0 +1,326 @@
+//? Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans&display=swap"); //montserrat
+
+//?roboto
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+.App {
+  $grid-80: 100%;
+
+  $text-white: #fff;
+  $text-green: #4d744f;
+  $font-16px: 16px;
+  $font-48px: 48px;
+  $bg-green: #4d744f;
+  $bg-orange: #e98c4c;
+  $bg-white: #fff;
+  $bg-gray: #f0f0f0;
+  .section-header {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./assets/images/header-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $text-white;
+    // margin-bottom: 20vh;
+    text-align: left;
+    header {
+      font-family: "Montserrat";
+
+      width: $grid-80;
+      padding: 40px 10% 0;
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+      .logo {
+        width: 50%;
+        h3 {
+          font-family: "Montserrat";
+          color: $text-white;
+          font-weight: 500;
+          font-size: 40px;
+        }
+      }
+      .nav-header {
+        width: 50%;
+        ul {
+          display: flex;
+          justify-content: space-between;
+          li {
+            font-family: "Roboto";
+            font-weight: 400;
+            font-size: $font-16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            justify-content: center;
+            i {
+              display: flex;
+              align-items: center;
+            }
+            &.phone {
+              color: $text-green;
+              i {
+                margin-right: 8px;
+              }
+            }
+            &.language {
+              i {
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .rent-section {
+      font-family: "Roboto";
+      display: flex;
+      justify-content: space-between;
+      width: $grid-80;
+      padding: 0 10%;
+      text-align: left;
+      .rent {
+        margin-top: 140px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        .rent-container {
+          width: 50%;
+          .rent-header {
+            font-size: $font-48px;
+            font-family: "Roboto";
+            font-weight: 500;
+            line-height: 56.25px;
+            margin-bottom: 26px;
+          }
+          .rent-description {
+            font-family: "Roboto";
+            font-weight: 300;
+            font-size: $font-16px;
+            line-height: 24px;
+            margin-bottom: 45px;
+            width: 78%;
+          }
+          .btn-green {
+            width: 186px;
+            height: 36px;
+            padding: 8px 18px;
+            font-family: "Roboto";
+            font-weight: 400;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: $bg-green;
+            color: $text-white;
+            transition: all 400ms ease-in-out;
+            -webkit-transition: all 400ms ease-in-out;
+            -moz-transition: all 400ms ease-in-out;
+            -ms-transition: all 400ms ease-in-out;
+            -o-transition: all 400ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+              background-color: $bg-orange;
+            }
+          }
+        }
+      }
+      .rent-adress {
+        box-sizing: border-box;
+        background-color: $bg-white;
+        margin-top: 90px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        text-align: center;
+        -o-border-radius: 5px;
+        form {
+          button {
+            cursor: pointer;
+          }
+          box-sizing: border-box;
+          padding: 30px 35px;
+          .rent-adress-header {
+            font-family: "Roboto";
+            font-size: 18px;
+            font-weight: 500;
+            color: black;
+            margin-bottom: 26px;
+          }
+          .input {
+            border-radius: 5px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            width: 400px;
+            height: 55px;
+            background-color: $bg-gray;
+            margin-bottom: 35px;
+            padding: 18px 21px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            input {
+              flex: 1;
+              border: none;
+              color: #a9aab2;
+              font-size: 17px;
+              padding-left: 29px;
+              outline: none;
+              background-color: $bg-gray;
+            }
+          }
+          .kilogram-amount,
+          .hour {
+            background-color: $bg-gray;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            button {
+              width: 130px;
+              height: 51px;
+              margin: 2px 0;
+              outline: none;
+              border: none;
+              border-radius: 5px;
+              color: #a9aab2;
+              font-size: 16px;
+              font-family: "Roboto";
+              font-weight: 400;
+              &.active {
+                background-color: white;
+                box-shadow: 0px 2px 4px #dfdfdf;
+              }
+            }
+          }
+          .kilogram-amount {
+            margin-bottom: 35px;
+            button.active {
+              color: #4d744f;
+            }
+          }
+          .rent-submit {
+            background-color: $bg-orange;
+            border: 0;
+            outline: 0;
+            font-family: "Roboto";
+            font-weight: 500;
+            box-sizing: border-box;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 35px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            height: 55px;
+            padding: 18px 0;
+            font-size: 16px;
+            transition: all 400ms ease-in-out;
+            -webkit-transition: all 400ms ease-in-out;
+            -moz-transition: all 400ms ease-in-out;
+            -ms-transition: all 400ms ease-in-out;
+            -o-transition: all 400ms ease-in-out;
+            &:hover {
+              background-color: white;
+              border: 1px solid $bg-orange;
+              color: $bg-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+  .map-section {
+    display: flex;
+    align-items: center;
+    width: $grid-80;
+    padding: 150px 10%;
+    justify-content: space-between;
+    .map-config {
+      width: 49%;
+      h4 {
+        font-size: 36px;
+        font-family: "Roboto";
+        font-weight: 500;
+        color: #4d744f;
+        margin-bottom: 18px;
+      }
+      p {
+        font-size: $font-16px;
+        width: 40%;
+        line-height: 24px;
+        font-family: "Roboto";
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+      .locations,
+      .hour {
+        background-color: $bg-gray;
+        border-radius: 5px;
+        width: fit-content;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        button {
+          width: 130px;
+          height: 51px;
+          cursor: pointer;
+          margin: 2px 0;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          color: #a9aab2;
+          font-size: 16px;
+          font-family: "Roboto";
+          font-weight: 400;
+          &.active {
+            background-color: white;
+            box-shadow: 0px 2px 4px #dfdfdf;
+          }
+        }
+      }
+      .locations {
+        margin-bottom: 35px;
+      }
+    }
+    aside.map-container {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .cards {
+    background-image: url("./assets/images/bags.png");
+    background-size: 100% 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    padding: 0 10%;
+    .cards-header {
+      text-align: center;
+      padding-top: 88px;
+      font-family: "Roboto";
+      font-weight: 500;
+      color: $text-white;
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+  }
+}
