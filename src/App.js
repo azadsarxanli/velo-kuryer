@@ -1,6 +1,7 @@
 import "./reset.scss";
 import "./App.scss";
 import mapImage from "./assets/images/map-first.png";
+import trackKuryer from "./assets/images/velokuryer-tracking-iphone.png";
 
 function App() {
   return (
@@ -146,13 +147,64 @@ function App() {
       </section>
       <section className="cards">
         <h4 className="cards-header">Виды доставок</h4>
-        <div className="card">
-          <h4 className="card-header">Доставка за 3 часа</h4>
-          <p>
-            Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
-            nulla sed viverra diam tincidunt.
-          </p>
+        <div className="card-container">
+          <div className="card">
+            <h4 className="card-header">Доставка за 3 часа</h4>
+            <p>
+              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
+              nulla sed viverra diam tincidunt.
+            </p>
+          </div>
+          <div className="card">
+            <h4 className="card-header">Доставка за 3 часа</h4>
+            <p>
+              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
+              nulla sed viverra diam tincidunt.
+            </p>
+          </div>
+          <div className="card">
+            <h4 className="card-header">Доставка за 3 часа</h4>
+            <p>
+              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
+              nulla sed viverra diam tincidunt.
+            </p>
+          </div>
         </div>
+      </section>
+      <section className="reason-order">
+        <aside className="reason-description">
+          <div className="content">
+            <h4>Как сделать заказ?</h4>
+            <p>
+              Оформление заказа проходит всего через 3 этапа. Для начала
+              рассчитайте стоимость услуги курьера с помощью электронного
+              калькулятора. Далее переходим в пункт “вызовите курьера”,в котором
+              вы можете выбрать курьера, который находится ближе к указанному
+              адресу. Следующий этап заключается в ожидании вашего курьера.
+            </p>
+            <button className="btn-green">Заказать доставку</button>
+          </div>
+        </aside>
+        <aside className="reason-btns">
+          <div className="btns-container">
+            <div className="btn">
+              <span>1</span> <p>Рассчитайте стоимость</p>
+            </div>
+            <div className="btn">
+              <span>2</span>
+              <p>Вызовите курьера</p>
+            </div>
+            <div className="btn">
+              <span>3</span>
+              <p>Подготовьте отправление</p>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <section className="tracker">
+        <aside>
+          <img src={trackKuryer} alt="track-kuryer" />
+        </aside>
       </section>
     </div>
   );
