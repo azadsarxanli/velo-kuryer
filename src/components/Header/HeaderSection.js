@@ -1,15 +1,17 @@
-import { useEffect } from "react";
-import { gsap, Elastic } from "gsap";
+import { useEffect, useRef } from "react";
+import { gsap, Power3 } from "gsap";
 
 function HeaderSection() {
+  const rentRef = useRef();
+  const rentAdressRef = useRef();
   useEffect(() => {
-    gsap.to("body", 0, { visibility: "visible" });
-    gsap.from(".rent", 1.2, { x: -200, ease: Elastic });
-    gsap.from(".rent-adress", 1.2, { x: 200 });
+    gsap.to("body", 0, { visibility: "visible", ease: Power3 });
+    gsap.from(rentRef.current, 1.2, { x: -200, opacity: 0, ease: Power3 });
+    gsap.from(rentAdressRef.current, 1.2, { x: 200, opacity: 0, ease: Power3 });
   });
   return (
     <section className="rent-section">
-      <aside className="rent">
+      <aside ref={rentRef} className="rent">
         <div className="rent-container">
           <h4 className="rent-header">
             Экологичная <br /> доставка в Баку
@@ -24,7 +26,7 @@ function HeaderSection() {
           </button>
         </div>
       </aside>
-      <aside className="rent-adress">
+      <aside ref={rentAdressRef} className="rent-adress">
         <form action="#">
           <h4 className="rent-adress-header">Рассчитайте доставку</h4>
           <div className="input from">

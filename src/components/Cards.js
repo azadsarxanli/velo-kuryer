@@ -1,8 +1,25 @@
-import React from "react";
+import { useEffect, useRef } from "react";
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Cards() {
+  gsap.registerPlugin(ScrollTrigger);
+  const cardRef = useRef(null);
+  useEffect(() => {
+    gsap.from(".card", 1, {
+      opacity: 0,
+      y: -25,
+      stagger: 0.25,
+      delay: 0.6,
+      ease: Power3,
+      scrollTrigger: {
+        trigger: cardRef.current,
+        markers: true,
+      },
+    });
+  }, []);
   return (
-    <section className="cards">
+    <section className="cards" ref={cardRef}>
       <h4 className="cards-header">Виды доставок</h4>
       <div className="card-container">
         <div className="card">
