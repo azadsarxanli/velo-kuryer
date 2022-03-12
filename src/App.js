@@ -1,41 +1,17 @@
 import "./reset.scss";
 import "./App.scss";
-import mapImage from "./assets/images/map-first.png";
+
 import trackKuryer from "./assets/images/velokuryer-tracking-iphone.png";
 import AppStore from "./assets/images/app-store.jpg";
 import iphoneMobile from "./assets/images/iphoneMobile.png";
 import Main from "./components/Main";
+import Map from "./components/Map";
 
 function App() {
   return (
     <div className="App">
       <Main />
-      <section className="map-section">
-        <aside className="map-config">
-          <h4>Зоны доставки</h4>
-          <p>
-            Venenatis convallis tempus, mi posuere accumsan, enim elit vitae,
-            cras. Enim nibh morbi cras eu libero.
-          </p>
-          <div className="locations">
-            <button type="button" className="active">
-              зона А
-            </button>
-            <button type="button">зона Б</button>
-            <button type="button">зона C</button>
-          </div>
-          <div className="hour">
-            <button type="button">за 3 часа</button>
-            <button type="button">за 24 часа</button>
-            <button type="button">за 48 часа</button>
-          </div>
-        </aside>
-        <aside className="map-container">
-          <div className="map-img">
-            <img src={mapImage} alt="" />
-          </div>
-        </aside>
-      </section>
+      <Map />
       <section className="cards">
         <h4 className="cards-header">Виды доставок</h4>
         <div className="card-container">
