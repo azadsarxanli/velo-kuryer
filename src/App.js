@@ -6,38 +6,14 @@ import AppStore from "./assets/images/app-store.jpg";
 import iphoneMobile from "./assets/images/iphoneMobile.png";
 import Main from "./components/Main";
 import Map from "./components/Map";
+import Cards from "./components/Cards";
 
 function App() {
   return (
     <div className="App">
       <Main />
       <Map />
-      <section className="cards">
-        <h4 className="cards-header">Виды доставок</h4>
-        <div className="card-container">
-          <div className="card">
-            <h4 className="card-header">Доставка за 3 часа</h4>
-            <p>
-              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
-              nulla sed viverra diam tincidunt.
-            </p>
-          </div>
-          <div className="card">
-            <h4 className="card-header">Доставка за 3 часа</h4>
-            <p>
-              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
-              nulla sed viverra diam tincidunt.
-            </p>
-          </div>
-          <div className="card">
-            <h4 className="card-header">Доставка за 3 часа</h4>
-            <p>
-              Interdum mattis pharetra sagittis dolor et congue. Sollicitudin
-              nulla sed viverra diam tincidunt.
-            </p>
-          </div>
-        </div>
-      </section>
+      <Cards />
       <section className="reason-order">
         <aside className="reason-description">
           <div className="content">
