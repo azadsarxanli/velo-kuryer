@@ -1,8 +1,35 @@
-import React from "react";
+import { useEffect, useRef } from "react";
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Reason() {
+  gsap.registerPlugin(ScrollTrigger);
+  const reasonRef = useRef(null);
+  useEffect(() => {
+    gsap.from(".reason-description", {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      delay: 0.6,
+      scrollTrigger: {
+        trigger: reasonRef.current,
+        markers: true,
+      },
+    });
+    gsap.from(".reason-btns", {
+      x: 100,
+      opacity: 0,
+      duration: 1,
+      delay: 0.6,
+      scrollTrigger: {
+        trigger: reasonRef.current,
+        markers: true,
+      },
+    });
+  }, []);
+
   return (
-    <section className="reason-order">
+    <section className="reason-order" ref={reasonRef}>
       <aside className="reason-description">
         <div className="content">
           <h4>Как сделать заказ?</h4>
