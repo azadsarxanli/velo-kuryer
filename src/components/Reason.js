@@ -4,23 +4,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Reason() {
   gsap.registerPlugin(ScrollTrigger);
-  const reasonRef = useRef(null);
+
+  const reasonRef = useRef();
   useEffect(() => {
+    console.log(reasonRef.current);
     gsap.from(".reason-description", {
-      x: -100,
-      opacity: 0,
-      duration: 1,
+      xPercent: -100,
       delay: 0.6,
+      duration: 1,
+      opacity: 0,
+      ease: Power3,
       scrollTrigger: {
         trigger: reasonRef.current,
         markers: true,
       },
     });
     gsap.from(".reason-btns", {
-      x: 100,
-      opacity: 0,
-      duration: 1,
+      xPercent: 100,
       delay: 0.6,
+      duration: 1,
+      opacity: 0,
+      ease: Power3,
       scrollTrigger: {
         trigger: reasonRef.current,
         markers: true,

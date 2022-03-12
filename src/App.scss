@@ -643,6 +643,7 @@
         width: 100%;
         padding: 0 10%;
         display: flex;
+        overflow-y: hidden;
         align-items: flex-end;
         .app-store-container {
           width: 50%;

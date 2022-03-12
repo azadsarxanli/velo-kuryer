@@ -1,9 +1,39 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import mapImage from "../assets/images/map-first.png";
+import { gsap, Power3 } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function Map() {
+  gsap.registerPlugin(ScrollTrigger);
+  const mapRef = useRef();
+  useEffect(() => {
+    gsap.from(".map-config", 1, {
+      xPercent: -100,
+      opacity: 0,
+      delay: 0.6,
+      ease: Power3,
+
+      scrollTrigger: {
+        trigger: mapRef.current,
+        markers: true,
+        start: "70px bottom",
+      },
+    });
+    gsap.from(".map-container", 1, {
+      xPercent: 100,
+      opacity: 0,
+      delay: 0.6,
+      ease: Power3,
+      scrollTrigger: {
+        trigger: mapRef.current,
+        markers: true,
+        start: "70px bottom",
+      },
+    });
+  }, []);
+
   return (
-    <section className="map-section">
+    <section className="map-section" ref={mapRef}>
       <aside className="map-config">
         <h4>Зоны доставки</h4>
         <p>

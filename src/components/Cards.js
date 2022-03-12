@@ -14,7 +14,6 @@ function Cards() {
       ease: Power3,
       scrollTrigger: {
         trigger: cardRef.current,
-        markers: true,
       },
     });
   }, []);
