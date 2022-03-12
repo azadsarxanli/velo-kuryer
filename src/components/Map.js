@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import mapImage from "../assets/images/map-first.png";
+
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

@@ -1,14 +1,43 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, Power3 } from "gsap";
+import Btns from "./Btns.json";
 
 function HeaderSection() {
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+  };
+  const [toggleKilogram, setToggleKilogram] = useState(Btns.kilogram);
+  const [toggleHour, settoggleHour] = useState(Btns.hour);
   const rentRef = useRef();
   const rentAdressRef = useRef();
   useEffect(() => {
     gsap.to("body", 0, { visibility: "visible", ease: Power3 });
     gsap.from(rentRef.current, 1.2, { x: -200, opacity: 0, ease: Power3 });
     gsap.from(rentAdressRef.current, 1.2, { x: 200, opacity: 0, ease: Power3 });
-  });
+  }, []);
+  const toggleKilogramButton = (id) => {
+    setToggleKilogram(
+      toggleKilogram.filter((item) => {
+        item.isActive = false;
+        if (item.id === id) {
+          item.isActive = !item.isActive;
+        }
+        return item;
+      })
+    );
+  };
+  const toggleHourButton = (id) => {
+    settoggleHour(
+      toggleHour.filter((item) => {
+        item.isActive = false;
+        if (item.id === id) {
+          item.isActive = !item.isActive;
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <section className="rent-section">
       <aside ref={rentRef} className="rent">
@@ -27,7 +56,7 @@ function HeaderSection() {
         </div>
       </aside>
       <aside ref={rentAdressRef} className="rent-adress">
-        <form action="#">
+        <form onSubmit={onSubmitForm} action="#">
           <h4 className="rent-adress-header">Рассчитайте доставку</h4>
           <div className="input from">
             <i>
@@ -64,16 +93,28 @@ function HeaderSection() {
             <input placeholder="Куда" type="text" name="" id="" />
           </div>
           <div className="kilogram-amount">
-            <button type="button" className="active">
-              до 5 кг
-            </button>
-            <button type="button">до 10 кг</button>
-            <button type="button">до 20 кг</button>
+            {toggleKilogram.map((btn) => (
+              <button
+                type="button"
+                className={btn.isActive ? "active" : null}
+                onClick={() => toggleKilogramButton(btn.id)}
+                key={btn.id}
+              >
+                {btn.text}
+              </button>
+            ))}
           </div>
           <div className="hour">
-            <button type="button">за 3 часа</button>
-            <button type="button">за 24 часа</button>
-            <button type="button">за 48 часа</button>
+            {toggleHour.map((btn) => (
+              <button
+                type="button"
+                className={btn.isActive ? "active" : null}
+                onClick={() => toggleHourButton(btn.id)}
+                key={btn.id}
+              >
+                {btn.text}
+              </button>
+            ))}
           </div>
           <button type="submit" className="rent-submit">
             Рассчитать стимость
