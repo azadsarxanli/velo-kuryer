@@ -1,13 +1,13 @@
 import "./reset.scss";
 import "./App.scss";
 
-import trackKuryer from "./assets/images/velokuryer-tracking-iphone.png";
 import AppStore from "./assets/images/app-store.jpg";
 import iphoneMobile from "./assets/images/iphoneMobile.png";
 import Main from "./components/Main";
 import Map from "./components/Map";
 import Cards from "./components/Cards";
 import Reason from "./components/Reason";
+import Track from "./components/Track";
 
 function App() {
   return (
@@ -16,23 +16,7 @@ function App() {
       <Map />
       <Cards />
       <Reason />
-      <section className="tracker">
-        <aside className="img-aside">
-          <img src={trackKuryer} alt="track-kuryer" />
-        </aside>
-        <aside className="content-aside">
-          <div className="content">
-            <h4>Трекер курьера </h4>
-            <p>
-              Nunc hendrerit cursus molestie interdum nulla nulla. Magna duis
-              quis elit, rhoncus amet, eu duis condimentum purus. Eu sit
-              dignissim ut ipsum vel scelerisque id ac. Turpis donec dolor
-              vulputate et iaculis faucibus. Tempus urna enim maecenas feugiat
-              amet, ultricies sit massa. Vestibulum erat.
-            </p>
-          </div>
-        </aside>
-      </section>
+      <Track />
       <section className="slider-section">
         <h4 className="section-title">Часто задаваемые вопросы</h4>
         <div className="slider-container">
