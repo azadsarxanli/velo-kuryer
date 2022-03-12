@@ -1,6 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
+import { gsap, Elastic } from "gsap";
 
 function HeaderSection() {
+  useEffect(() => {
+    gsap.to("body", 0, { visibility: "visible" });
+    gsap.from(".rent", 1.2, { x: -200, ease: Elastic });
+    gsap.from(".rent-adress", 1.2, { x: 200 });
+  });
   return (
     <section className="rent-section">
       <aside className="rent">
