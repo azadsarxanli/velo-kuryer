@@ -1,5 +1,5 @@
 //? Montserrat
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans&display=swap"); //montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Open+Sans&display=swap"); //montserrat
 
 //?roboto
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
@@ -633,6 +633,104 @@
                 background: #e98c4c;
               }
             }
+          }
+        }
+      }
+      .download-app {
+        height: 100vh;
+        width: 100%;
+        padding: 0 10%;
+        display: flex;
+        align-items: flex-end;
+        .app-store-container {
+          width: 50%;
+          .app-store {
+            h4 {
+              font-size: 36px;
+              color: #4d744f;
+              font-family: "Roboto";
+              font-weight: 500;
+              margin-bottom: 44px;
+            }
+            p {
+              line-height: 24px;
+              font-size: 16px;
+              width: 60%;
+              font-weight: 300;
+              color: #54535d;
+              margin-bottom: 155px;
+            }
+            button {
+              width: 173px;
+              height: 49px;
+              border: none;
+              outline: none;
+              margin-bottom: 175px;
+              img {
+                cursor: pointer;
+                border-radius: 5px;
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+        .iphone-img {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          .img-container {
+            display: flex;
+            align-items: stretch;
+          }
+        }
+      }
+      .footer {
+        height: 171px;
+        background-color: $bg-green;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10%;
+        padding-top: 42px;
+
+        color: white;
+        .logo {
+          flex: 1;
+
+          h3 {
+            font-size: 30px;
+            font-weight: 500;
+            font-family: "Montserrat";
+          }
+        }
+        h5 {
+          font-family: "Roboto";
+          font-weight: 500;
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 300;
+          font-family: "Roboto";
+          line-height: 24px;
+        }
+        .contact {
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+        }
+        .social-media {
+          flex: 1;
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column;
+          justify-content: flex-start;
+          .link {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
           }
         }
       }
