@@ -2,8 +2,15 @@
 
 ---
 
-to run project, write in terminal: `npm i`
+To run project, write in terminal: `npm i`
 
-### Used library
+### Used functionality and plugins
 
-    For each section I used GSAP, ScrollTrigger.
+- GSAP
+  - ScrollTrigger
+- SCSS
+- Javascript
+  - `useEffect()`
+  - `useState()`
+  - `useRef()`
+- Authentication
