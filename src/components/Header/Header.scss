@@ -1,5 +1,6 @@
 .section-header {
   $grid-80: 100%;
+  position: relative;
 
   $text-white: #fff;
   $text-green: #4d744f;
@@ -270,6 +271,22 @@
           }
         }
       }
+    }
+  }
+  .default {
+    position: absolute;
+    bottom: 5%;
+    padding: 20px;
+    background-color: #4d744f;
+    opacity: 0;
+    transform: scale(0.9);
+    right: -100%;
+    border-radius: 5px;
+    transition: all 400ms ease;
+    &.active {
+      right: 10%;
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }

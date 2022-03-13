@@ -38,6 +38,34 @@ function HeaderSection() {
     );
   };
 
+  const fromRef = useRef();
+  const orderClickHandler = () => {
+    fromRef.current.focus();
+  };
+
+  const localStorageInputs = localStorage.getItem("inputs");
+  const INITIAL_STATE = {
+    from: "",
+    to: "",
+  };
+  const [inputs, setInputs] = useState(
+    JSON.parse(localStorageInputs) || INITIAL_STATE
+  );
+  useEffect(() => {
+    localStorage.setItem("inputs", JSON.stringify(inputs));
+  }, [inputs]);
+  const inputHandler = (event) => {
+    setInputs((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+  };
+  const [alert, setAlert] = useState(false);
+  const submitButtonHandler = () => {
+    const isTyping = inputs.from.length > 0 && inputs.to.length > 0;
+    if (!isTyping) {
+      setAlert(true);
+    } else {
+      setAlert(false);
+    }
+  };
   return (
     <section className="rent-section">
       <aside ref={rentRef} className="rent">
@@ -50,7 +78,11 @@ function HeaderSection() {
             Sit luctus lacus urna, non scelerisque porta. Turpis diam aliquam
             volutpat faucibus suspendisse.{" "}
           </p>
-          <button type="button" className="btn-green">
+          <button
+            onClick={orderClickHandler}
+            type="button"
+            className="btn-green"
+          >
             Заказать доставку
           </button>
         </div>
@@ -73,7 +105,15 @@ function HeaderSection() {
                 />
               </svg>
             </i>
-            <input placeholder="Откуда" type="text" name="" id="" />
+            <input
+              placeholder="Откуда"
+              type="text"
+              ref={fromRef}
+              onChange={inputHandler}
+              name="from"
+              value={inputs.from}
+              id=""
+            />
           </div>
           <div className="input to">
             <i>
@@ -90,7 +130,14 @@ function HeaderSection() {
                 />
               </svg>
             </i>
-            <input placeholder="Куда" type="text" name="" id="" />
+            <input
+              placeholder="Куда"
+              type="text"
+              name="to"
+              onChange={inputHandler}
+              value={inputs.to}
+              id=""
+            />
           </div>
           <div className="kilogram-amount">
             {toggleKilogram.map((btn) => (
@@ -116,11 +163,19 @@ function HeaderSection() {
               </button>
             ))}
           </div>
-          <button type="submit" className="rent-submit">
+          <button
+            onClick={submitButtonHandler}
+            type="submit"
+            className="rent-submit"
+          >
             Рассчитать стимость
           </button>
         </form>
       </aside>
+
+      <div className={alert ? "default active" : "default"}>
+        Пожалуйста, заполните все поля
+      </div>
     </section>
   );
 }
