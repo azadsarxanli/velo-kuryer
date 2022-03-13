@@ -64,7 +64,18 @@ function HeaderSection() {
       setAlert(true);
     } else {
       setAlert(false);
+      setForm(false);
+      setAccept(true);
     }
+  };
+
+  const [form, setForm] = useState(true);
+  const [accept, setAccept] = useState(false);
+  const [numAccept, setNumAccept] = useState(false);
+  const acceptOrder = () => {
+    console.log("helo");
+    setAccept(false);
+    setNumAccept(true);
   };
   return (
     <section className="rent-section">
@@ -89,87 +100,122 @@ function HeaderSection() {
       </aside>
       <aside ref={rentAdressRef} className="rent-adress">
         <form onSubmit={onSubmitForm} action="#">
-          <h4 className="rent-adress-header">Рассчитайте доставку</h4>
-          <div className="input from">
-            <i>
-              <svg
-                width="14"
-                height="20"
-                viewBox="0 0 14 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z"
-                  fill="#2F2F38"
+          {form && (
+            <div>
+              <h4 className="rent-adress-header">Рассчитайте доставку</h4>
+              <div className="input from">
+                <i>
+                  <svg
+                    width="14"
+                    height="20"
+                    viewBox="0 0 14 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z"
+                      fill="#2F2F38"
+                    />
+                  </svg>
+                </i>
+                <input
+                  placeholder="Откуда"
+                  type="text"
+                  ref={fromRef}
+                  onChange={inputHandler}
+                  name="from"
+                  value={inputs.from}
+                  id=""
                 />
-              </svg>
-            </i>
-            <input
-              placeholder="Откуда"
-              type="text"
-              ref={fromRef}
-              onChange={inputHandler}
-              name="from"
-              value={inputs.from}
-              id=""
-            />
-          </div>
-          <div className="input to">
-            <i>
-              <svg
-                width="14"
-                height="20"
-                viewBox="0 0 14 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z"
-                  fill="#2F2F38"
+              </div>
+              <div className="input to">
+                <i>
+                  <svg
+                    width="14"
+                    height="20"
+                    viewBox="0 0 14 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z"
+                      fill="#2F2F38"
+                    />
+                  </svg>
+                </i>
+                <input
+                  placeholder="Куда"
+                  type="text"
+                  name="to"
+                  onChange={inputHandler}
+                  value={inputs.to}
+                  id=""
                 />
-              </svg>
-            </i>
-            <input
-              placeholder="Куда"
-              type="text"
-              name="to"
-              onChange={inputHandler}
-              value={inputs.to}
-              id=""
-            />
-          </div>
-          <div className="kilogram-amount">
-            {toggleKilogram.map((btn) => (
+              </div>
+              <div className="kilogram-amount">
+                {toggleKilogram.map((btn) => (
+                  <button
+                    type="button"
+                    className={btn.isActive ? "active" : null}
+                    onClick={() => toggleKilogramButton(btn.id)}
+                    key={btn.id}
+                  >
+                    {btn.text}
+                  </button>
+                ))}
+              </div>
+              <div className="hour">
+                {toggleHour.map((btn) => (
+                  <button
+                    type="button"
+                    className={btn.isActive ? "active" : null}
+                    onClick={() => toggleHourButton(btn.id)}
+                    key={btn.id}
+                  >
+                    {btn.text}
+                  </button>
+                ))}
+              </div>
               <button
-                type="button"
-                className={btn.isActive ? "active" : null}
-                onClick={() => toggleKilogramButton(btn.id)}
-                key={btn.id}
+                onClick={submitButtonHandler}
+                type="submit"
+                className="rent-submit"
               >
-                {btn.text}
+                Рассчитать стимость
               </button>
-            ))}
-          </div>
-          <div className="hour">
-            {toggleHour.map((btn) => (
-              <button
-                type="button"
-                className={btn.isActive ? "active" : null}
-                onClick={() => toggleHourButton(btn.id)}
-                key={btn.id}
-              >
-                {btn.text}
+            </div>
+          )}
+          {accept && (
+            <div className="accept-container">
+              <h4>Стоимость ващего заказа: 5.99 АЗН</h4>
+              <button onClick={acceptOrder} className="btn-green">
+                Заказать доставку
               </button>
-            ))}
-          </div>
-          <button
-            onClick={submitButtonHandler}
-            type="submit"
-            className="rent-submit"
-          >
-            Рассчитать стимость
-          </button>
+            </div>
+          )}
+          {numAccept && (
+            <div className="name-surname-container">
+              <div className="input">
+                <input type="text" placeholder="Имя" />
+              </div>
+              <div className="input">
+                <input type="text" placeholder="Фамилия" />
+              </div>
+              <div className="input">
+                <select name="" id="numbers">
+                  <option value="050">050</option>
+                  <option value="055">055</option>
+                  <option value="070">070</option>
+                  <option value="077">077</option>
+                </select>
+                <input type="number" placeholder="Номер для связи" />
+              </div>
+              <div className="btngr">
+                {" "}
+                <button className="btn-green">Подтвердить</button>
+              </div>
+            </div>
+          )}
         </form>
       </aside>
 
