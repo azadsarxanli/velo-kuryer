@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Header() {
+  const [langBar, setLangBar] = useState(false);
+  const langHandler = (event) => {
+    setLangBar(!langBar);
+  };
+  const langRef = useRef();
+  useEffect(() => {
+    document.body.addEventListener("mousedown", handleClickOutSide);
+    return () => {
+      document.body.removeEventListener("mousedown", handleClickOutSide);
+    };
+  }, []);
+  const handleClickOutSide = (e) => {
+    if (langRef.current && !langRef.current.contains(e.target)) {
+      setLangBar(false);
+    }
+  };
   return (
     <header>
       <div className="logo">
@@ -28,7 +44,7 @@ function Header() {
             </i>{" "}
             (+994 50) 202 17 52
           </li>
-          <li className="language">
+          <li ref={langRef} onClick={langHandler} className="language">
             RU
             <i>
               <svg
@@ -44,6 +60,13 @@ function Header() {
                 />
               </svg>
             </i>
+            {langBar && (
+              <ul>
+                <li>AZ</li>
+                <li>EN</li>
+                <li>Tl</li>
+              </ul>
+            )}
           </li>
         </ul>
       </nav>

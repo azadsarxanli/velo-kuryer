@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 import HeaderSection from "./Header/HeaderSection";
+import "./Header/Header.scss";
 
 function Main() {
   return (

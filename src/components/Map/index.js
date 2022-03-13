@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react";
-import mapImage from "../assets/images/map-first.png";
+import mapImage from "../../assets/images/map-first.png";
 
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./Map.scss";
 
 function Map() {
   gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +33,11 @@ function Map() {
       },
     });
   }, []);
+  const onClickHandler = (e) => {
+    e.target.className = "active";
+    console.log(e.target.className);
+    alert();
+  };
 
   return (
     <section className="map-section" ref={mapRef}>
@@ -49,7 +55,9 @@ function Map() {
           <button type="button">зона C</button>
         </div>
         <div className="hour">
-          <button type="button">за 3 часа</button>
+          <button type="button" onClick={() => onClickHandler()}>
+            за 3 часа
+          </button>
           <button type="button">за 24 часа</button>
           <button type="button">за 48 часа</button>
         </div>
