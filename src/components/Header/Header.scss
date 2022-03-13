@@ -337,15 +337,19 @@
             border: 0;
             input {
               border: 0;
+              &#phone {
+                padding-left: 11px;
+              }
             }
             select {
-              border: 2px solid $bg-orange;
-              outline: 2px solid $bg-orange;
+              border: 1px solid $bg-orange;
+              outline: 0;
               background-color: transparent;
-              padding: 10px 5px;
+              padding: 12px 5px;
+              color: #2f2f38;
               height: 55px;
               border-radius: 4px 0 0 4px;
-              border: 0;
+              cursor: pointer;
               option {
                 padding: 10px;
                 display: flex;

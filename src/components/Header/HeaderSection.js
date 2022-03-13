@@ -208,7 +208,7 @@ function HeaderSection() {
                   <option value="070">070</option>
                   <option value="077">077</option>
                 </select>
-                <input type="number" placeholder="Номер для связи" />
+                <input type="number" id="phone" placeholder="Номер для связи" />
               </div>
               <div className="btngr">
                 {" "}
