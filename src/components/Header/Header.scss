@@ -78,6 +78,8 @@
             position: relative;
             ul {
               box-sizing: border-box;
+              visibility: visible;
+
               position: absolute;
               top: 17px;
               right: 0;
@@ -88,6 +90,7 @@
                 padding: 2px;
                 display: block;
                 padding-right: 10px;
+                transition: all 400ms ease-out;
 
                 text-align: right;
                 &:hover {

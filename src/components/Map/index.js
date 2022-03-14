@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import mapImage from "../../assets/images/map-first.png";
-import iphoneMobile from "../../assets/images/iphoneMobile.png";
+import Btns from "../Header/Btns.json";
 
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -58,6 +58,19 @@ function Map() {
     setMap3(true);
     setMap(false);
   };
+  const [hourBtns, setHourBtns] = useState(Btns.hour);
+  const btnOnclickHandler = (id) => {
+    setHourBtns(
+      hourBtns.filter((btn) => {
+        btn.isActive = false;
+
+        if (btn.id === id) {
+          btn.isActive = true;
+        }
+        return btn;
+      })
+    );
+  };
 
   return (
     <section className="map-section" ref={mapRef}>
@@ -91,9 +104,16 @@ function Map() {
           </button>
         </div>
         <div className="hour">
-          <button type="button">за 3 часа</button>
-          <button type="button">за 24 часа</button>
-          <button type="button">за 48 часа</button>
+          {hourBtns.map((btn) => (
+            <button
+              key={btn.id}
+              onClick={() => btnOnclickHandler(btn.id)}
+              className={btn.isActive ? "active" : null}
+              type="button"
+            >
+              {btn.text}
+            </button>
+          ))}
         </div>
       </aside>
       <aside className="map-container">
