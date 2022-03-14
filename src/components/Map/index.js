@@ -35,43 +35,43 @@ function Map() {
       },
     });
   }, []);
-  const [map, setMap] = useState(true);
-  const [map1, setMap1] = useState(false);
-  const [map2, setMap2] = useState(false);
-  const [map3, setMap3] = useState(false);
-  const onClickHandler = (e) => {
-    setMap1(true);
-    setMap2(false);
-    setMap3(false);
-    setMap(false);
-  };
-  const map2Handler = () => {
-    setMap1(false);
-    setMap3(false);
-    setMap(false);
 
-    setMap2(true);
-  };
-  const map3Handler = () => {
-    setMap1(false);
-    setMap2(false);
-    setMap3(true);
-    setMap(false);
-  };
   const [hourBtns, setHourBtns] = useState(Btns.hour);
-  const btnOnclickHandler = (id) => {
-    setHourBtns(
-      hourBtns.filter((btn) => {
-        btn.isActive = false;
+  const hourRef = useRef();
 
-        if (btn.id === id) {
-          btn.isActive = true;
+  const btnOnclickHandler = (event) => {
+    setHourBtns(
+      hourBtns.filter((btn, index) => {
+        btn.isActive = false;
+        if (event.target.className === `active-${index}`) {
+          hourRef.current.className = `secret active-${index}`;
+          hourRef.current.textContent = btn.text;
         }
         return btn;
       })
     );
   };
-
+  const [buttons, setButtons] = useState(Btns.location);
+  const [images, setImages] = useState(Btns.images);
+  const [selected, setSelected] = useState(Btns.images[0]);
+  const [toggleHour, settoggleHour] = useState(Btns.hour);
+  const imgRef = useRef();
+  const buttonHandler = (id, event) => {
+    setSelected(
+      images.find((image) => {
+        return id === image.id;
+      })
+    );
+    setButtons(
+      buttons.filter((item, index) => {
+        if (event.target.className === `active-${index}`) {
+          imgRef.current.className = `secret active-${index}`;
+          imgRef.current.textContent = item.text;
+        }
+        return item;
+      })
+    );
+  };
   return (
     <section className="map-section" ref={mapRef}>
       <aside className="map-config">
@@ -81,47 +81,40 @@ function Map() {
           cras. Enim nibh morbi cras eu libero.
         </p>
         <div className="locations">
-          <button
-            type="button"
-            onClick={onClickHandler}
-            className={map1 ? "active" : null}
-          >
-            зона А
-          </button>
-          <button
-            onClick={map2Handler}
-            className={map2 ? "active" : null}
-            type="button"
-          >
-            зона Б
-          </button>
-          <button
-            onClick={map3Handler}
-            className={map3 ? "active" : null}
-            type="button"
-          >
-            зона C
-          </button>
-        </div>
-        <div className="hour">
-          {hourBtns.map((btn) => (
+          {buttons.map((btn, index) => (
             <button
+              className={`active-${index}`}
+              onClick={(event) => buttonHandler(btn.id, event)}
               key={btn.id}
-              onClick={() => btnOnclickHandler(btn.id)}
-              className={btn.isActive ? "active" : null}
-              type="button"
             >
               {btn.text}
             </button>
           ))}
+          <div ref={imgRef} className="secret active-0">
+            зона А
+          </div>
+        </div>
+        <div className="hour">
+          {hourBtns.map((btn, index) => (
+            <>
+              <button
+                key={btn.id}
+                onClick={btnOnclickHandler}
+                className={`active-${index}`}
+                type="button"
+              >
+                {btn.text}
+              </button>
+            </>
+          ))}
+          <div ref={hourRef} className="secret active-0">
+            за 3 часа
+          </div>
         </div>
       </aside>
       <aside className="map-container">
         <div className="map-img">
-          {map && <img src={mapImage} alt="" />}
-          {map1 && <img src={mapImage} alt="" />}
-          {map2 && <img src={mapImage} alt="" />}
-          {map3 && <img src={mapImage} alt="" />}
+          <img src={selected.src} key={selected.id} alt="hei" />
         </div>
       </aside>
     </section>

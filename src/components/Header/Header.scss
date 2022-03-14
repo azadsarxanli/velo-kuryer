@@ -221,6 +221,7 @@
         }
         .kilogram-amount,
         .hour {
+          position: relative;
           display: flex;
           justify-content: space-between;
           padding: 0 3px;
@@ -246,6 +247,40 @@
               background-color: white;
               box-shadow: 0px 2px 4px #dfdfdf;
             }
+          }
+          .secret {
+            color: white;
+            position: absolute;
+            background-color: white;
+            padding: 1px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 400ms ease;
+            width: 130px;
+            height: 51px;
+            margin: 2px 0;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px #dfdfdf;
+          }
+          .secret.active-0 {
+            left: 3px;
+            color: #4d744f;
+            background-color: #fff;
+          }
+          .secret.active-1 {
+            left: 134px;
+            color: #4d744f;
+            background-color: #fff;
+          }
+          .secret.active-2 {
+            left: 268px;
+            color: #4d744f;
+            background-color: #fff;
           }
         }
         .kilogram-amount {

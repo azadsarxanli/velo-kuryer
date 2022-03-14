@@ -8,7 +8,7 @@ function Cards() {
   useEffect(() => {
     gsap.from(".card", 1, {
       opacity: 0,
-      y: -25,
+      y: 35,
       stagger: 0.25,
       delay: 0.6,
       ease: Power3,

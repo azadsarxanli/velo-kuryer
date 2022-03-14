@@ -15,23 +15,25 @@ function HeaderSection() {
     gsap.from(rentRef.current, 1.2, { x: -200, opacity: 0, ease: Power3 });
     gsap.from(rentAdressRef.current, 1.2, { x: 200, opacity: 0, ease: Power3 });
   }, []);
-  const toggleKilogramButton = (id) => {
+  const secretRef = useRef();
+  const toggleKilogramButton = (event) => {
     setToggleKilogram(
-      toggleKilogram.filter((item) => {
-        item.isActive = false;
-        if (item.id === id) {
-          item.isActive = !item.isActive;
+      toggleKilogram.filter((item, index) => {
+        if (event.target.className === `active-${index}`) {
+          secretRef.current.className = `secret active-${index}`;
+          secretRef.current.textContent = item.text;
         }
         return item;
       })
     );
   };
-  const toggleHourButton = (id) => {
+  const hourRef = useRef();
+  const toggleHourButton = (event) => {
     settoggleHour(
-      toggleHour.filter((item) => {
-        item.isActive = false;
-        if (item.id === id) {
-          item.isActive = !item.isActive;
+      toggleHour.filter((item, index) => {
+        if (event.target.className === `active-${index}`) {
+          hourRef.current.className = `secret active-${index}`;
+          hourRef.current.textContent = item.text;
         }
         return item;
       })
@@ -77,6 +79,30 @@ function HeaderSection() {
     setAccept(false);
     setNumAccept(true);
   };
+
+  const localPrivateDetails = localStorage.getItem("privateDetails");
+  const DUMB_VALUE = {
+    name: "",
+    lastname: "",
+    numberPrefix: "",
+    phone: "",
+  };
+  const [privateDetail, setPrivateDetail] = useState(
+    JSON.parse(localPrivateDetails) || DUMB_VALUE
+  );
+  useEffect(() => {
+    localStorage.setItem("privateDetails", JSON.stringify(privateDetail));
+  }, [privateDetail]);
+
+  //? local storage for name surname and phone number
+  const privateDetailHandler = (event) => {
+    setPrivateDetail((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+    console.log(event.target.value);
+  };
+
   return (
     <section className="rent-section">
       <aside ref={rentRef} className="rent">
@@ -153,28 +179,34 @@ function HeaderSection() {
                 />
               </div>
               <div className="kilogram-amount">
-                {toggleKilogram.map((btn) => (
+                {toggleKilogram.map((btn, index) => (
                   <button
                     type="button"
-                    className={btn.isActive ? "active" : null}
-                    onClick={() => toggleKilogramButton(btn.id)}
+                    className={`active-${index}`}
+                    onClick={toggleKilogramButton}
                     key={btn.id}
                   >
                     {btn.text}
                   </button>
                 ))}
+                <div ref={secretRef} className="secret active-0">
+                  до 10 кг
+                </div>
               </div>
               <div className="hour">
-                {toggleHour.map((btn) => (
+                {toggleHour.map((btn, index) => (
                   <button
                     type="button"
-                    className={btn.isActive ? "active" : null}
-                    onClick={() => toggleHourButton(btn.id)}
+                    className={`active-${index}`}
+                    onClick={toggleHourButton}
                     key={btn.id}
                   >
                     {btn.text}
                   </button>
                 ))}
+                <div ref={hourRef} className="secret active-0">
+                  за 3 часа
+                </div>
               </div>
               <button
                 onClick={submitButtonHandler}
@@ -196,19 +228,43 @@ function HeaderSection() {
           {numAccept && (
             <div className="name-surname-container">
               <div className="input">
-                <input type="text" placeholder="Имя" />
+                <input
+                  name="name"
+                  value={privateDetail.name}
+                  onChange={privateDetailHandler}
+                  type="text"
+                  placeholder="Имя"
+                />
               </div>
               <div className="input">
-                <input type="text" placeholder="Фамилия" />
+                <input
+                  name="lastname"
+                  onChange={privateDetailHandler}
+                  value={privateDetail.lastname}
+                  type="text"
+                  placeholder="Фамилия"
+                />
               </div>
               <div className="input">
-                <select name="" id="numbers">
+                <select
+                  name="numberPrefix"
+                  onChange={privateDetailHandler}
+                  value={privateDetail.numberPrefix}
+                  id="numbers"
+                >
                   <option value="050">050</option>
                   <option value="055">055</option>
                   <option value="070">070</option>
                   <option value="077">077</option>
                 </select>
-                <input type="number" id="phone" placeholder="Номер для связи" />
+                <input
+                  value={privateDetail.phone}
+                  onChange={privateDetailHandler}
+                  type="number"
+                  id="phone"
+                  name="phone"
+                  placeholder="Номер для связи"
+                />
               </div>
               <div className="btngr">
                 {" "}

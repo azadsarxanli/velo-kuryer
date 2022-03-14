@@ -1,38 +1,4 @@
 {
-  "kilogram": [
-    {
-      "id": 1,
-      "text": "до 5 кг",
-      "isActive": true
-    },
-    {
-      "id": 2,
-      "text": "до 10 кг",
-      "isActive": false
-    },
-    {
-      "id": 3,
-      "text": "до 20 кг",
-      "isActive": false
-    }
-  ],
-  "hour": [
-    {
-      "id": 1,
-      "text": "за 3 часа",
-      "isActive": true
-    },
-    {
-      "id": 2,
-      "text": "за 24 часа",
-      "isActive": false
-    },
-    {
-      "id": 3,
-      "text": "за 48 часа",
-      "isActive": false
-    }
-  ],
   "location": [
     { "id": 1, "text": "зона А", "isActive": true },
     { "id": 2, "text": "зона Б", "isActive": false },
