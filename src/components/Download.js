@@ -14,7 +14,6 @@ function Download() {
       ease: Power3,
       scrollTrigger: {
         trigger: refDownload.current,
-        markers: true,
         start: "70px bottom",
       },
     });

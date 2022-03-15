@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./Reason.scss";
 
 function Reason() {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +17,6 @@ function Reason() {
       ease: Power3,
       scrollTrigger: {
         trigger: reasonRef.current,
-        markers: true,
       },
     });
     gsap.from(".reason-btns", {
@@ -27,7 +27,6 @@ function Reason() {
       ease: Power3,
       scrollTrigger: {
         trigger: reasonRef.current,
-        markers: true,
       },
     });
   }, []);
@@ -63,6 +62,9 @@ function Reason() {
             <p>Подготовьте отправление</p>
           </div>
         </div>
+        <button type="button" className="btn-green">
+          Заказать доставку
+        </button>
       </aside>
     </section>
   );

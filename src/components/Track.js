@@ -14,7 +14,6 @@ function Track() {
       opacity: 0,
       scrollTrigger: {
         trigger: refTrack.current,
-        markers: true,
         start: "70px bottom",
       },
     });
@@ -25,7 +24,6 @@ function Track() {
       opacity: 0,
       scrollTrigger: {
         trigger: refTrack.current,
-        markers: true,
         start: "70px bottom",
       },
     });

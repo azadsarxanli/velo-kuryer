@@ -19,7 +19,6 @@ function Map() {
 
       scrollTrigger: {
         trigger: mapRef.current,
-        markers: true,
         start: "70px bottom",
       },
     });
@@ -30,7 +29,6 @@ function Map() {
       ease: Power3,
       scrollTrigger: {
         trigger: mapRef.current,
-        markers: true,
         start: "70px bottom",
       },
     });

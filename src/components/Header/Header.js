@@ -22,6 +22,11 @@ function Header() {
       <div className="logo">
         <h3>VELOKURYER</h3>
       </div>
+      <div className="hamburger">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
       <nav className="nav-header">
         <ul>
           <li>Тарифы</li>

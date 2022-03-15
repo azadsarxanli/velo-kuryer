@@ -48,6 +48,16 @@
         font-size: 40px;
       }
     }
+    .hamburger {
+      display: none;
+      width: 27px;
+      .line {
+        width: 100%;
+        background-color: #dfdfdf;
+        height: 2.5px;
+        margin: 3px 0;
+      }
+    }
     .nav-header {
       width: 50%;
       ul {
@@ -268,17 +278,17 @@
             box-shadow: 0px 2px 4px #dfdfdf;
           }
           .secret.active-0 {
-            left: 3px;
+            left: calc(0% + 3px);
             color: #4d744f;
             background-color: #fff;
           }
           .secret.active-1 {
-            left: 134px;
+            left: calc(33% + 3px);
             color: #4d744f;
             background-color: #fff;
           }
           .secret.active-2 {
-            left: 268px;
+            left: calc(66% - 3px);
             color: #4d744f;
             background-color: #fff;
           }
@@ -447,6 +457,113 @@
       right: 10%;
       opacity: 1;
       transform: scale(1);
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 280px) {
+  .section-header {
+    height: auto;
+    .default {
+      display: none;
+    }
+    background-size: 100% 42%;
+
+    header {
+      padding: 10% 20px 0;
+      .logo {
+        h3 {
+          font-size: 20px;
+        }
+      }
+      .nav-header {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+    .rent-section {
+      flex-direction: column;
+      padding: 0 20px;
+      .rent {
+        margin-top: 63px;
+        .rent-container {
+          width: fit-content;
+          .rent-header {
+            font-size: 30px;
+            line-height: 41px;
+          }
+          .rent-description {
+            width: 100%;
+            font-size: 15px;
+            line-height: 20.4px;
+            margin-right: 0;
+          }
+          .btn-green {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+          }
+        }
+      }
+      .rent-adress {
+        filter: drop-shadow(0px 2px 8px rgba(216, 216, 216, 0.6));
+        form {
+          width: 100%;
+          padding: 15px;
+          div {
+            width: 100%;
+            .rent-adress-header {
+              color: #4d744f;
+              padding-top: 16px;
+            }
+            .input {
+              font-size: 14px;
+              width: 100%;
+              height: 45px;
+              padding-top: 0;
+              padding-bottom: 0;
+              input {
+                font-size: 14px;
+                height: 45px;
+                width: 100%;
+              }
+            }
+            .kilogram-amount {
+              width: 100%;
+              button {
+                font-size: 13px;
+                width: calc(100% / 3);
+              }
+              .secret {
+                font-size: 13px;
+                width: calc(100% / 3);
+              }
+            }
+            .hour {
+              width: 100%;
+              button {
+                font-size: 13px;
+                width: calc(100% / 3);
+              }
+              .secret {
+                font-size: 13px;
+                width: calc(100% / 3);
+              }
+            }
+            .rent-submit {
+              width: 100%;
+              background: #242426;
+              height: 45px;
+              padding: 0;
+              font-size: 14px;
+            }
+          }
+        }
+      }
     }
   }
 }

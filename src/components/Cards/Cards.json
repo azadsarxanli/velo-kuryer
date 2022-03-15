@@ -1,0 +1,22 @@
+{
+  "card": [
+    {
+      "id": 1,
+      "h4": "Доставка за 3 часа",
+      "detail": " Interdum mattis pharetra sagittis dolor et congue. Sollicitudin, nulla sed viverra diam tincidunt.",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "h4": "Доставка в течение дня",
+      "detail": " Interdum mattis pharetra sagittis dolor et congue. Sollicitudin, nulla sed viverra diam tincidunt.",
+      "isActive": false
+    },
+    {
+      "id": 3,
+      "h4": "Доставка сегодня на завтра",
+      "detail": " Interdum mattis pharetra sagittis dolor et congue. Sollicitudin, nulla sed viverra diam tincidunt.",
+      "isActive": false
+    }
+  ]
+}
