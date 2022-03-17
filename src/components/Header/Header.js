@@ -17,12 +17,20 @@ function Header() {
       setLangBar(false);
     }
   };
+  const [heavy, setHeavy] = useState(false);
+  const heavyHandler = () => {
+    setHeavy(true);
+  };
+  const removeHeavy = () => {
+    setHeavy(false);
+  };
+
   return (
     <header>
       <div className="logo">
         <h3>VELOKURYER</h3>
       </div>
-      <div className="hamburger">
+      <div className="hamburger" onClick={heavyHandler}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
@@ -75,6 +83,9 @@ function Header() {
           </li>
         </ul>
       </nav>
+      <div className={heavy ? "heavy active" : "heavy"}>
+        <p onClick={removeHeavy}>Delete</p>
+      </div>
     </header>
   );
 }

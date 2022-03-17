@@ -89,7 +89,7 @@ function Cards() {
                   card.isActive ? "card-detail active " : "card-detail"
                 }
               >
-                {card.detail}
+                <p> {card.detail}</p>
               </div>
             </div>
           ))}

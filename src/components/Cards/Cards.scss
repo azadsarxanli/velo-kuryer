@@ -64,7 +64,7 @@
     display: none;
   }
 }
-@media only screen and (max-width: 400px) and (min-width: 280px) {
+@media only screen and (max-width: 768px) and (min-width: 280px) {
   .container {
     background-image: none;
     padding: 0 20px;
@@ -82,22 +82,26 @@
       margin-bottom: 80px;
       .cards {
         .card {
-          min-height: 60px;
-          transition: all 800ms ease-out;
+          transition: all 400ms ease;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-bottom: 15px;
+          margin-bottom: 0px;
           flex-direction: column;
           border-radius: 5px;
-          padding: 0 20px;
-          background: #f1f1f1;
+
           width: 100%;
+          &.active {
+            margin-bottom: 15px;
+
+            background-color: #f1f1f1;
+          }
 
           .card-header {
             display: flex;
-            padding: 15px 0;
+            background: #f1f1f1;
 
+            padding: 15px;
             width: 100%;
             justify-content: space-between;
             h4 {
@@ -118,12 +122,20 @@
             color: #54535d;
             font-family: "Roboto";
             font-weight: 400;
-            display: none;
+            display: block;
+            padding: 15px;
+            visibility: hidden;
+            opacity: 0;
+            width: 100%;
+            max-height: 0;
             padding-bottom: 15px;
             font-size: 14px;
             transition: all 400ms ease;
             &.active {
               display: block;
+              max-height: 180px;
+              opacity: 1;
+              visibility: visible;
             }
           }
         }

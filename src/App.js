@@ -17,12 +17,13 @@ function App() {
       <Map />
       <Cards />
       <Reason />
-      {/* 
 
       <Track />
       <Slider />
+
       <Download />
-      <Footer /> */}
+
+      <Footer />
     </div>
   );
 }

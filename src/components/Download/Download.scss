@@ -1,0 +1,78 @@
+.download-app {
+  height: 100vh;
+  width: 100%;
+  padding: 0 10%;
+  display: flex;
+  overflow-x: hidden !important;
+  align-items: flex-end;
+  .app-store-container {
+    width: 50%;
+    .app-store {
+      h4 {
+        font-size: 36px;
+        color: #4d744f;
+        font-family: "Roboto";
+        font-weight: 500;
+        margin-bottom: 44px;
+      }
+      p {
+        line-height: 24px;
+        font-size: 16px;
+        width: 60%;
+        font-weight: 300;
+        color: #54535d;
+        margin-bottom: 155px;
+      }
+      button {
+        width: 173px;
+        height: 49px;
+        border: none;
+        outline: none;
+        margin-bottom: 175px;
+        img {
+          cursor: pointer;
+          border-radius: 5px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .iphone-img {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    .img-container {
+      display: flex;
+      align-items: stretch;
+    }
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 280px) {
+  .download-app {
+    width: auto;
+    height: auto;
+    padding: 40px 20px;
+    .app-store-container {
+      width: 100%;
+      .app-store {
+        h4 {
+          font-size: 20px;
+          margin-bottom: 19px;
+        }
+        p {
+          width: 100%;
+          color: rgba(84, 83, 93, 1);
+          font-size: 16px;
+          margin-bottom: 34px;
+        }
+        button {
+          margin-bottom: 87px;
+        }
+      }
+    }
+    .iphone-img {
+      display: none;
+    }
+  }
+}

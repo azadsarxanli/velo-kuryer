@@ -73,7 +73,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 400ms ease;
+        transition: all 530ms ease-out;
+
         width: 130px;
         height: 51px;
         margin: 2px 0;
@@ -119,7 +120,7 @@
     }
   }
 }
-@media only screen and (max-width: 400px) and (min-width: 280px) {
+@media only screen and (max-width: 768px) and (min-width: 280px) {
   .map-section {
     box-sizing: border-box;
     flex-direction: column;

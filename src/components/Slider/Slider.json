@@ -1,0 +1,37 @@
+{
+  "sliders": [
+    {
+      "isActive": true,
+      "id": 1,
+      "title": "Leo eu donec nibh morbi magna tellus?",
+      "description": "Sit tellus enim donec quis placerat scelerisque nibh nullatortor. Dis pulvinar velit elementum semper lobortis. Odio quamcursus cursus sit elementum. Orci viverra congue interdum ac ipsum venenatis, amet amet non. Enim egestas."
+    },
+    {
+      "isActive": false,
+      "id": 2,
+      "title": "Auctor ut mi in sed augue congue?",
+      "description": "Sit tellus enim donec quis placerat scelerisque nibh nullatortor. Dis pulvinar velit elementum semper lobortis. Odio quamcursus cursus sit elementum. Orci viverra congue interdum ac ipsum venenatis, amet amet non. Enim egestas."
+    },
+    {
+      "isActive": false,
+
+      "id": 3,
+      "title": "Facilisis facilisi condimentum imperdiet?",
+      "description": "Sit tellus enim donec quis placerat scelerisque nibh nullatortor. Dis pulvinar velit elementum semper lobortis. Odio quamcursus cursus sit elementum. Orci viverra congue interdum ac ipsum venenatis, amet amet non. Enim egestas."
+    },
+    {
+      "isActive": false,
+
+      "id": 4,
+      "title": "Cursus parturient volutpat tortor?",
+      "description": "Sit tellus enim donec quis placerat scelerisque nibh nullatortor. Dis pulvinar velit elementum semper lobortis. Odio quamcursus cursus sit elementum. Orci viverra congue interdum ac ipsum venenatis, amet amet non. Enim egestas."
+    },
+    {
+      "isActive": false,
+
+      "id": 5,
+      "title": "Ipsum ullamcorper dolor viverra?",
+      "description": "Sit tellus enim donec quis placerat scelerisque nibh nullatortor. Dis pulvinar velit elementum semper lobortis. Odio quamcursus cursus sit elementum. Orci viverra congue interdum ac ipsum venenatis, amet amet non. Enim egestas."
+    }
+  ]
+}

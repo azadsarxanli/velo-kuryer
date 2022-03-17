@@ -1,0 +1,115 @@
+.footer {
+  $grid-80: 100%;
+
+  $text-white: #fff;
+  $text-green: #4d744f;
+  $font-16px: 16px;
+  $font-48px: 48px;
+  $bg-green: #4d744f;
+  $bg-orange: #e98c4c;
+  $bg-white: #fff;
+  $bg-gray: #f0f0f0;
+
+  height: 171px;
+  background-color: $bg-green;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%;
+  padding-top: 42px;
+
+  color: white;
+  .logo {
+    flex: 1;
+
+    h3 {
+      font-size: 30px;
+      font-weight: 500;
+      font-family: "Montserrat";
+    }
+  }
+  h5 {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Roboto";
+    line-height: 24px;
+  }
+  .contact {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+  .social-media {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+    .link {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 280px) {
+  .footer {
+    height: auto;
+    flex-direction: column;
+    padding: 20px 0;
+    .logo {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      justify-content: center;
+      align-items: center;
+      h3 {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+    }
+    .contact {
+      flex-direction: column;
+      .adress,
+      .phone {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      }
+    }
+    h5 {
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+    p {
+      font-size: 14px;
+      white-space: nowrap;
+      br {
+        display: none;
+      }
+    }
+    .social-media {
+      align-items: center;
+      justify-content: center;
+      padding-top: 43px;
+      padding-bottom: 77px;
+      .link-container {
+        width: 100%;
+        padding: 0 47px;
+        .link {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+      h5 {
+        text-align: center;
+        margin-bottom: 44px;
+      }
+    }
+  }
+}

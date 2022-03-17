@@ -66,6 +66,9 @@
     }
   }
   .reason-btns {
+    .btn-green {
+      display: none;
+    }
     .btns-container {
       display: flex;
       align-items: center;
@@ -117,7 +120,7 @@
     }
   }
 }
-@media only screen and (max-width: 400px) and (min-width: 280px) {
+@media only screen and (max-width: 768px) and (min-width: 280px) {
   .reason-order {
     flex-direction: column;
     padding: 0 20px;

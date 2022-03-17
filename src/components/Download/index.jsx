@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AppStore from "../assets/images/app-store.jpg";
-import iphoneMobile from "../assets/images/iphoneMobile.png";
-
+import AppStore from "../../assets/images/app-store.jpg";
+import iphoneMobile from "../../assets/images/iphoneMobile.png";
+import "./Download.scss";
 function Download() {
   const refDownload = useRef();
   useEffect(() => {

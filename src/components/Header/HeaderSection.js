@@ -274,10 +274,6 @@ function HeaderSection() {
           )}
         </form>
       </aside>
-
-      <div className={alert ? "default active" : "default"}>
-        Пожалуйста, заполните все поля
-      </div>
     </section>
   );
 }

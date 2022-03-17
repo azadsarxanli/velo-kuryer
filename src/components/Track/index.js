@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap, Power3 } from "gsap";
+import "./Track.scss";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import trackKuryer from "../assets/images/velokuryer-tracking-iphone.png";
+import trackKuryer from "../../assets/images/velokuryer-tracking-iphone.png";
 
 function Track() {
   gsap.registerPlugin(ScrollTrigger);
