@@ -128,12 +128,17 @@
             opacity: 0;
             width: 100%;
             max-height: 0;
+            height: 0;
+            min-height: 0;
             padding-bottom: 15px;
             font-size: 14px;
             transition: all 400ms ease;
             &.active {
               display: block;
               max-height: 180px;
+              transition: all 400ms ease;
+
+              height: 100px;
               opacity: 1;
               visibility: visible;
             }

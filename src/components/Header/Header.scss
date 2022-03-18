@@ -91,6 +91,9 @@
             }
             position: relative;
             ul {
+              &:hover {
+                color: $text-white;
+              }
               box-sizing: border-box;
               visibility: visible;
 
@@ -122,6 +125,9 @@
     }
     .heavy {
       display: none;
+      .mobile-nav {
+        display: none;
+      }
     }
   }
 
@@ -346,7 +352,6 @@
           height: 100%;
           h4 {
             color: #54535d;
-            white-space: nowrap;
             font-size: 20px;
             font-family: "Roboto";
             font-weight: 500;
@@ -476,8 +481,13 @@
       .heavy {
         width: 100%;
         height: 100vh;
+        $softorange: #f4a259;
+        $tomatored: #f25c66;
+        $mediumblu: #1e272d;
+
+        padding: 51px 0 0;
         display: block;
-        background-color: #dfdfdf;
+        background-color: #242426;
         transform: translateX(100%);
         transition: all 400ms ease;
         will-change: transform;
@@ -485,11 +495,131 @@
         top: 0;
         right: 0;
         z-index: 3;
+        .mobile-nav {
+          margin-top: 5px;
+          width: 100%;
+          display: block;
+          // background-color: #4d744f;
+          ul {
+            li {
+              padding: 20px;
+              color: white;
+              font-size: 16px;
+              font-family: "Roboto";
+              font-weight: 400;
+              display: flex;
+              align-items: center;
+              i {
+                margin-right: 4px;
+                svg {
+                  width: 14px;
+                  height: 14px;
+                  path {
+                    fill: white;
+                  }
+                }
+              }
+              border-bottom: 1px solid rgba(216, 216, 216, 0.6);
+              &.language {
+                display: flex;
+                align-items: center;
+                position: relative;
+                i {
+                  display: flex;
+                  transition: all 400ms ease;
+                  margin-left: 4px;
+                  svg {
+                    width: 10px;
+                    height: 7px;
+                  }
+                  &.active {
+                    transform: rotateZ(180deg);
+                  }
+                }
+                ul {
+                  padding: 0;
+                  position: absolute;
+                  transition: all 400ms ease;
+                  visibility: hidden;
+                  bottom: 0px;
+                  left: 60px;
+                  opacity: 0;
+                  li {
+                    list-style-type: circle;
+
+                    font-size: 13px;
+                    padding: 0;
+                    border-bottom: none;
+                  }
+                  &.active {
+                    bottom: 5px;
+                    visibility: visible;
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
 
         &.active {
           transform: translateX(0);
 
           color: black;
+        }
+
+        .close-container {
+          position: relative;
+          width: 27px;
+          padding: 0 20px;
+          height: 27px;
+          cursor: pointer;
+        }
+
+        .leftright {
+          height: 4px;
+          width: 27px;
+          position: absolute;
+          background-color: $softorange;
+          border-radius: 2px;
+          transform: rotate(45deg);
+          transition: all 0.3s ease-in;
+        }
+
+        .rightleft {
+          height: 4px;
+          width: 27px;
+          position: absolute;
+          background-color: $softorange;
+          border-radius: 2px;
+          transform: rotate(-45deg);
+          transition: all 0.3s ease-in;
+        }
+
+        label {
+          color: white;
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 0.6em;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          transition: all 0.3s ease-in;
+          opacity: 0;
+        }
+        .close {
+          margin: 20px 0 0 0px;
+          position: absolute;
+        }
+
+        .close-container:hover .leftright {
+          transform: rotate(-45deg);
+          background-color: $tomatored;
+        }
+        .close-container:hover .rightleft {
+          transform: rotate(45deg);
+          background-color: $tomatored;
+        }
+        .close-container:hover label {
+          opacity: 1;
         }
       }
     }
