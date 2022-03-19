@@ -72,7 +72,7 @@
           align-items: center;
           cursor: pointer;
           justify-content: center;
-          &:hover {
+          &:hover:not(.language) {
             color: #e98c4c;
           }
           i {
@@ -112,6 +112,7 @@
                 text-align: right;
                 &:hover {
                   background-color: #4d744f;
+                  color: white;
                 }
               }
             }
@@ -640,12 +641,15 @@
             line-height: 20.4px;
             margin-right: 0;
           }
-          .btn-green {
+          @mixin btn-green {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 14px;
+          }
+          .btn-green {
+            @include btn-green();
           }
         }
       }
@@ -654,6 +658,13 @@
         form {
           width: 100%;
           padding: 15px;
+          .name-surname-container {
+            .input {
+              select {
+                height: 45px;
+              }
+            }
+          }
           div {
             width: 100%;
             .rent-adress-header {
@@ -671,7 +682,12 @@
                 height: 45px;
                 width: 100%;
               }
+              select {
+                height: 45px;
+                background-color: red;
+              }
             }
+
             .kilogram-amount {
               width: 100%;
               button {
@@ -701,6 +717,25 @@
               padding: 0;
               font-size: 14px;
             }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) and (min-width: 350px) {
+  .section-header {
+    .rent-section {
+      .rent {
+        .rent-container {
+          .rent-header {
+            font-size: 35px;
+          }
+          .rent-description {
+            font-size: 15px;
+          }
+          .btn-green {
+            font-size: 15px;
           }
         }
       }

@@ -76,3 +76,14 @@
     }
   }
 }
+@media only screen and (max-width: 768px) and (min-width: 350px) {
+  .download-app {
+    .app-store-container {
+      .app-store {
+        h4 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
