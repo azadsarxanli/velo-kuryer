@@ -4,6 +4,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from "body-scroll-lock";
+import "./Header.scss";
 
 function Header() {
   const [langBar, setLangBar] = useState(false);

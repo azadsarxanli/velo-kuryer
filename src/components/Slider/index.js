@@ -1,104 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Slider.scss";
 import SliderApi from "./Slider.json";
 
 function Slider() {
-  const [mobileSlider, setMobileSlider] = useState(SliderApi.sliders);
+  const [sliderGeneral, setSliderGeneral] = useState(SliderApi.sliders);
+  // slider general length divided by 2
+
+  const sliderRef = useRef(null);
+  const singleSliderRef = useRef(null);
+
   const toggleHandler = (id) => {
-    setMobileSlider(
-      mobileSlider.filter((item) => {
-        item.isActive = false;
+    setSliderGeneral(
+      sliderGeneral.filter((item) => {
         if (item.id === id) {
           item.isActive = !item.isActive;
+        } else {
+          if (item.isActive) {
+            item.isActive = false;
+          }
         }
+
         return item;
       })
     );
   };
+  useEffect(() => {
+    const slider = sliderRef?.current;
+    const singleSlider = singleSliderRef?.current;
+    const singleSliderWidth = singleSlider?.offsetWidth + 45;
+    // document key press equal right arrow key then scroll to right
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode === 39) {
+        slider.scrollLeft += singleSliderWidth * 3;
+      }
+      // if left arrow key then scroll to left
+      if (e.keyCode === 37) {
+        slider.scrollLeft -= singleSliderWidth * 3;
+      }
+    });
+  }, []);
+
   return (
     <section className="slider-section">
       <h4 className="section-title">Часто задаваемые вопросы</h4>
       <div className="slider-container">
-        <div className="sliders">
-          <div className="slider active">
-            <div className="description">
-              <div className="description-title">
-                <h5> Leo eu donec nibh morbi magna tellus?</h5>
-                <i>
-                  <svg
-                    width="7"
-                    height="4"
-                    viewBox="0 0 7 4"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.8225 0L3.5 2.47233L6.1775 0L7 0.761134L3.5 4L0 0.761134L0.8225 0Z"
-                      fill="#2F2F38"
-                    />
-                  </svg>
-                </i>
+        <div ref={sliderRef} className="sliders">
+          {sliderGeneral.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className={`slider ${item.isActive ? "active" : ""}`}
+                onClick={() => toggleHandler(item.id)}
+                ref={item.id === 1 ? singleSliderRef : null}
+              >
+                <div className="description">
+                  <div className="description-title">
+                    <h5> {item.title}</h5>
+                    <i>
+                      <svg
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.8225 0L3.5 2.47233L6.1775 0L7 0.761134L3.5 4L0 0.761134L0.8225 0Z"
+                          fill="#2F2F38"
+                        />
+                      </svg>
+                    </i>
+                  </div>
+                  <div className="description-content">{item.description}</div>
+                </div>
               </div>
-              <div className="description-content">
-                Sit tellus enim donec quis placerat scelerisque nibh nulla
-                tortor. Dis pulvinar velit elementum semper lobortis. Odio quam
-                cursus cursus sit elementum. Orci viverra congue interdum ac
-                ipsum venenatis, amet amet non. Enim egestas.
-              </div>
-            </div>
-          </div>
-          <div className="slider">
-            <div className="description">
-              <div className="description-title">
-                <p> Leo eu donec nibh morbi magna tellus?</p>
-                <i>
-                  <svg
-                    width="7"
-                    height="4"
-                    viewBox="0 0 7 4"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.8225 0L3.5 2.47233L6.1775 0L7 0.761134L3.5 4L0 0.761134L0.8225 0Z"
-                      fill="#2F2F38"
-                    />
-                  </svg>
-                </i>
-              </div>
-            </div>
-          </div>
-          <div className="slider">
-            <div className="description">
-              <div className="description-title">
-                <p> Leo eu donec nibh morbi magna tellus?</p>
-                <i>
-                  <svg
-                    width="7"
-                    height="4"
-                    viewBox="0 0 7 4"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.8225 0L3.5 2.47233L6.1775 0L7 0.761134L3.5 4L0 0.761134L0.8225 0Z"
-                      fill="#2F2F38"
-                    />
-                  </svg>
-                </i>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
         <div className="dots">
-          <div className="dot active"></div>
-          <div className="dot"></div>
-          <div className="dot"></div>
-          <div className="dot"></div>
+          {sliderGeneral.slice(0, sliderGeneral.length / 3).map((item) => {
+            return (
+              <div
+                key={item.id}
+                className={`dot ${item.isActive ? "active" : ""}`}
+              ></div>
+            );
+          })}
         </div>
       </div>
       <div className="mobile-container">
-        {mobileSlider.map((item) => (
+        {sliderGeneral.map((item) => (
           <div
             key={item.id}
             className={

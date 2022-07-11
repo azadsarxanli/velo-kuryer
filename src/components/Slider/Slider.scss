@@ -24,7 +24,13 @@
       align-items: flex-start;
       justify-content: space-between;
       width: 100%;
+      overflow: hidden;
+      scroll-behavior: smooth;
       .slider {
+        flex-shrink: 0;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
         min-height: 35px;
         background-color: white;
         border-radius: 5px;

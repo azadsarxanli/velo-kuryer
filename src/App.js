@@ -9,6 +9,7 @@ import Track from "./components/Track";
 import Slider from "./components/Slider";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
